@@ -1,7 +1,7 @@
 def add(a, b):
     return a + b
 
-def substrate(a, b):
+def subtract(a, b):
     return a - b
 
 def multiply(a, b):
@@ -9,25 +9,32 @@ def multiply(a, b):
 
 def divide(a, b):
     if b == 0:
-        return "b shouldn't be 0"
+        raise ValueError("Division by zero is not allowed.")
     return a / b
 
 def main():
-    print("welcome!")
-    a = float(input("The first number: "))
-    operator = input("Operator (+, - ,* ,/ ): ")
-    b = float(input("The second number: "))
+    print("Welcome to the Simple Calculator!")
 
-    if operator == "+":
-        print("result: ", add(a, b))
-    elif operator == "-":
-        print("result: ", substrate(a, b))
-    elif operator == "*":
-        print("result: ", multiply(a, b))
-    elif operator == "/":
-        print("result: ", divide(a, b))
-    else:
-        print("invalid operator")
+    try:
+        a = float(input("The first number: "))
+        operator = input("Operator (+, - ,* ,/ ): ")
+        b = float(input("The second number: "))
 
+        if operator == "+":
+            print("result: ", add(a, b))
+        elif operator == "-":
+            print("result: ", subtract(a, b))
+        elif operator == "*":
+            print("result: ", multiply(a, b))
+        elif operator == "/":
+            try:
+                print("result: ", divide(a, b))
+            except ValueError as e:
+                print(e)
+        else:
+            print("invalid operator")
+    except ValueError as e:
+        print("Invalid input. Please enter valid numbers.")
+        
 if __name__ == "__main__":
     main()
