@@ -1,0 +1,10 @@
+# Python cache files
+__pycache__/
+*.pyc
+
+# 虛擬環境資料夾（如果你有建立）
+venv/
+env/
+
+# .env 檔（敏感資訊）
+.env
