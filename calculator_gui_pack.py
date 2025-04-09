@@ -1,4 +1,6 @@
 import tkinter as tk
+import math
+import sys
 
 def on_click(char):
     current = entry.get()
